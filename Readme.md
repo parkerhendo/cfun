@@ -1,1 +1,1 @@
-Currently on section **16.3**
+Currently on section **17.4**
