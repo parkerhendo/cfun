@@ -23,7 +23,7 @@ static void repl() {
 
 static char* readFile(const char* path) {
   FILE* file = fopen(path, "rb");
-
+  
   if (file == NULL) {
     fprintf(stderr, "Could not open file \"%s\".\n", path);
     exit(74);
@@ -31,13 +31,9 @@ static char* readFile(const char* path) {
 
   fseek(file, 0L, SEEK_END);
   size_t fileSize = ftell(file);
-
-  printf("+++ File size (bytes): %zu +++\n",fileSize);
-
   rewind(file);
 
   char* buffer = (char*)malloc(fileSize + 1);
-
   if (buffer == NULL) {
     fprintf(stderr, "Not enough memory to read \"%s\".\n", path);
     exit(74);
@@ -58,9 +54,7 @@ static char* readFile(const char* path) {
 
 static void runFile(const char* path) {
   char* source = readFile(path);
-  printf("working\n");
   InterpretResult result = interpret(source);
-  printf("%d\n", result);
   free(source);
 
   if (result == INTERPRET_COMPILE_ERROR) exit(65);
