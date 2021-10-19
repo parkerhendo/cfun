@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.12)
-project(crafting-interpreters  VERSION 0.1.0  LANGUAGES C)
+project(cfun  VERSION 0.1.0  LANGUAGES C)
 
 include($ENV{CKIT_DIR}/ckit.cmake)
 ckit_configure_project(C)
